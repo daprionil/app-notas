@@ -15,6 +15,7 @@ function eventos(){
 }
 function iniciandoApp(){
     storageTextArray();
+    storageId();
     formulario.addEventListener('submit',addText);
     htmlText();
 }
@@ -23,9 +24,10 @@ function addText(e){
     if(textInput.value.length > 0){
         clearMessage();
         const text = {
-            dataId:arrayText.length,
+            dataId:id++,
             titulo:textInput.value,
         };
+        localStorage.setItem('id',JSON.stringify(id));
         arrayText = [text,...arrayText];
         localStorage.setItem('texts',JSON.stringify(arrayText));
         htmlText();
@@ -89,6 +91,19 @@ function storageTextArray(){
         localStorage.setItem('texts',JSON.stringify(arrayText));
         arrayText = JSON.parse(localStorage.getItem('texts'));
     };
+};
+function storageId(){
+    if(arrayText.length < 1){
+        localStorage.setItem('id',JSON.stringify(0));
+        id = JSON.parse(localStorage.getItem('id'));
+    }else{
+        if(localStorage.getItem('id')){
+            id = JSON.parse(localStorage.getItem('id'));
+        }else{
+            localStorage.setItem('id',JSON.stringify(id));
+            id = JSON.parse(localStorage.getItem('id'));
+        };
+    }
 };
 //Delete text box
 function deleteTextBox(e){
