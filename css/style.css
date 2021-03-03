@@ -1,0 +1,195 @@
+@charset "UTF-8";
+* {
+  font-family: 'Montserrat',sans-serif;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border;
+          box-sizing: border;
+}
+
+body {
+  padding: 1% 0;
+  background: #797979;
+}
+
+.ctn-formulario {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2%;
+  background: #efefef;
+  text-align: center;
+}
+
+.ctn-formulario p {
+  color: black;
+}
+
+.ctn-formulario input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  margin: 0 0 10px 0;
+}
+
+.ctn-formulario button {
+  border: none;
+  outline: none;
+  background: #0051ff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.ctn-formulario button:hover {
+  background: #00a2ff;
+}
+
+.message {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.message p {
+  background: #ff2323;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 2px;
+  font-size: 150%;
+}
+
+.message.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ctn-textos {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2%;
+  background: #3f3f3f;
+  text-align: center;
+}
+
+.ctn-textos .ctn-text {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 0.2fr;
+      grid-template-columns: 1fr 0.2fr;
+  max-width: 80%;
+  padding: 15px;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #0059ff;
+  margin: 5px auto;
+}
+
+.ctn-textos .ctn-text p {
+  color: white;
+  font-size: 140%;
+}
+
+.ctn-textos .ctn-text p:nth-child(1)::before {
+  font-size: 150%;
+  content: '·';
+  margin: 0 15px 0 0;
+  font-weight: bold;
+}
+
+.ctn-textos .ctn-text .delete-text {
+  position: absolute;
+  top: 50%/50%;
+  right: 10%;
+  background: crimson;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.ctn-textos .ctn-text .delete-text:hover {
+  -webkit-transform: translateX(-1.5%) translateY(-1.5%);
+          transform: translateX(-1.5%) translateY(-1.5%);
+  -webkit-box-shadow: 2px 2px 0 rgba(245, 245, 245, 0.747);
+          box-shadow: 2px 2px 0 rgba(245, 245, 245, 0.747);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #790000;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.637);
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.637);
+}
+
+footer p {
+  color: white;
+  padding: 10px;
+}
+
+@media (max-width: 414px) {
+  .ctn-formulario {
+    width: 95%;
+  }
+  .ctn-formulario .formulario {
+    width: 95%;
+    margin: auto;
+  }
+  .ctn-formulario input {
+    margin: 10px auto;
+    width: 90%;
+  }
+  .message p {
+    font-size: 100%;
+  }
+  .ctn-textos {
+    width: 95%;
+    padding: 1%;
+  }
+  .ctn-textos .ctn-text {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    max-width: 95%;
+    padding: 10px;
+    margin: 3px auto;
+    position: inherit;
+  }
+  .ctn-textos .ctn-text p {
+    font-size: 100%;
+  }
+  .ctn-textos .ctn-text p:nth-child(1)::before {
+    font-size: 120%;
+    margin: 0 10px 0 0;
+  }
+  .ctn-textos .ctn-text .delete-text {
+    position: static;
+    top: auto;
+    right: auto;
+    background: crimson;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 5px;
+    margin: 10px 0;
+  }
+  footer {
+    font-size: 85%;
+  }
+  footer p {
+    color: white;
+    padding: 5px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
