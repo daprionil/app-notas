@@ -26,13 +26,7 @@ function addText(e){
         const text = {
             dataId:id++,
             titulo:textInput.value,
-            date:{
-                day: new Date().getDay(),
-                month: new Date().getMonth(),
-                year: new Date().getFullYear(),
-                hour: new Date().getHours(),
-                minute: new Date().getMinutes(),
-            }
+            date:dayjs(new Date()).format('MMMM D YYYY - h : mm a'),
         };
         localStorage.setItem('id',JSON.stringify(id));
         arrayText = [text,...arrayText];
@@ -75,7 +69,7 @@ function textBox(text,id,time){
     deleteBtn.id = 'deleteText';
     deleteBtn.textContent = 'X';
     const tiempo = document.createElement('p');
-    tiempo.textContent = `Fecha: ${time.day} / ${time.month} / ${time.year} - Hora: ${time.hour} : ${time.minute}`;
+    tiempo.textContent = time;
     deleteBtn.addEventListener('click',deleteTextBox);
     
     textBoxHtml.appendChild(pText);
