@@ -2,11 +2,22 @@
     font-family:'Montserrat',sans-serif;
     padding: 0;
     margin: 0;
-    box-sizing:border;
+    box-sizing:border-box;
 }
 body{
     padding: 1% 0;
-    background: #797979;
+    background-color: rgb(0, 23, 65);
+    background-image: url(../bg-f.png);
+    background-size: 20px 20px;
+    background-position: 0 0,20px 20px;
+    display: flex;
+    justify-content: center;
+    align-content:center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 .ctn-formulario{
     width: 100%;
@@ -22,7 +33,7 @@ body{
         width: 100%;
         padding: 10px;
         outline: none;
-        margin: 0 0 10px 0;
+        margin-bottom: 10px;
     }
     button{
         border: none;
@@ -53,20 +64,20 @@ body{
     display: flex;
 }
 .ctn-textos{
+    overflow-y: auto;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
     padding: 2%;
-    background: #3f3f3f;
-    text-align: center;
+    background: rgb(1, 76, 214);
     .ctn-text{
         display: grid;
-        grid-template-columns:1fr 0.2fr;
+        grid-template-columns:97%;
         max-width: 80%;
         padding:15px;
         position:relative;
         align-items: center;
-        background: rgb(0, 89, 255);
+        background: rgb(0, 53, 151);
         margin: 5px auto;
         p{
             color: rgb(255, 255, 255);
@@ -79,33 +90,28 @@ body{
                     font-weight: bold;
                 }
             }
-        }
-        .delete-text{
-            position: absolute;
-            top: 50%/50%;
-            right: 10%;
-            background: crimson;
-            color: white;
-            border-radius: 5px;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: all .3s;
-            &:hover{
-                transform: translateX(-1.5%) translateY(-1.5%);
-                box-shadow:2px 2px 0 rgba(245, 245, 245, 0.747);
+            &:nth-child(3){
+                font-size: 100%;
+                background:rgb(0, 63, 180);
+                padding: 5px;
+                width: fit-content;                
             }
         }
-    }
-}
-footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background: rgb(121, 0, 0);
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.637);
-    p{
-        color: white;
-        padding: 10px;
+        .delete-text{
+            background: red;
+            text-align: center;
+            padding: 5px 15px;
+            font-size: 100%;
+            border-radius:5px;
+            cursor: pointer;
+            position: absolute;
+            top: 5px;
+            right:5px;
+            &:hover{
+                transform: translateX(-1%) translateY(-1%);
+                box-shadow:1px 1px 0 black;
+            }
+        }
     }
 }
 @media (max-width:414px){
@@ -153,13 +159,6 @@ footer{
                 padding: 5px 5px;
                 margin: 10px 0;
             }
-        }
-    }
-    footer{
-        font-size: 85%;
-        p{
-            color: white;
-            padding: 5px;
         }
     }
 }

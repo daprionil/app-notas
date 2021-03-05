@@ -26,6 +26,13 @@ function addText(e){
         const text = {
             dataId:id++,
             titulo:textInput.value,
+            date:{
+                day: new Date().getDay(),
+                month: new Date().getMonth(),
+                year: new Date().getFullYear(),
+                hour: new Date().getHours(),
+                minute: new Date().getMinutes(),
+            }
         };
         localStorage.setItem('id',JSON.stringify(id));
         arrayText = [text,...arrayText];
@@ -40,8 +47,8 @@ function addText(e){
 function htmlText(){
     clearTextBlock();
     arrayText.forEach( text => {
-        const {dataId,titulo} = text;
-        textBox(titulo,dataId);
+        const {dataId,titulo,date} = text;
+        textBox(titulo,dataId,date);
     });
 }
 //Mensajes de Alerta
@@ -57,7 +64,7 @@ function clearMessage(){
     };
 };
 //Parrafo
-function textBox(text,id){
+function textBox(text,id,time){
     const textBoxHtml = document.createElement('div');
     textBoxHtml.classList.add('ctn-text');
     textBoxHtml.setAttribute('data-id',id)
@@ -67,11 +74,14 @@ function textBox(text,id){
     deleteBtn.classList.add('delete-text');
     deleteBtn.id = 'deleteText';
     deleteBtn.textContent = 'X';
-
+    const tiempo = document.createElement('p');
+    tiempo.textContent = `Fecha: ${time.day} / ${time.month} / ${time.year} - Hora: ${time.hour} : ${time.minute}`;
     deleteBtn.addEventListener('click',deleteTextBox);
-
+    
     textBoxHtml.appendChild(pText);
     textBoxHtml.appendChild(deleteBtn);
+    textBoxHtml.appendChild(tiempo);
+
     textBlock.appendChild(textBoxHtml);
 }
 //Reset Formulario
